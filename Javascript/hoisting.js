@@ -15,12 +15,13 @@ function test(){
 //console.log(needle) // = 'magnet'
 // *** real anwser = 'magnet' then undefined
 
-var brendan = 'super cool';
-function print(){
-    brendan = 'only okay';
+var brendan = 'super cool';  // get hoisted
+function print(){  // get hoisted
+    brendan = 'only okay'; // didn't put var in front so error
     console.log(brendan);
 }
 console.log(brendan);
+// 
 // guess:
 // 'only okay' 
 // 'super cool'
@@ -28,9 +29,9 @@ console.log(brendan);
 // super cool
 // undefined
 
-var food = 'chicken';
-console.log(food);
-eat();
+var food = 'chicken'; // get hoisted
+console.log(food); // read food 
+eat(); // 
 function eat(){
     food = 'half-chicken';
     console.log(food);
@@ -46,9 +47,9 @@ function eat(){
 // undefined
 
 
-mean();
+mean(); // not a function // end and typeError
 console.log(food);
-var mean = function() {
+var mean = function() { 
     food = "chicken";
     console.log(food);
     var food = "fish";
@@ -62,16 +63,16 @@ console.log(food);
 // result:
 // Uncaught TypeError: mean is not a function
 
-console.log(genre);
-var genre = "disco";
-rewind();
+console.log(genre); // undefined. genre has no var
+var genre = "disco"; // hoisted
+rewind(); 
 function rewind() {
     genre = "rock";
     console.log(genre);
     var genre = "r&b";
     console.log(genre);
 }
-console.log(genre);
+console.log(genre); // read from genre is global level
 // guess:
 // undefined  // 'rock'  // 'r&b'  // 'disco'
 // result:
@@ -79,9 +80,9 @@ console.log(genre);
 
 
 
-dojo = "san jose";
-console.log(dojo);
-learn();
+dojo = "san jose"; // hoisted
+console.log(dojo); // reading from dojo that are hoisted.
+learn(); 
 function learn() {
     dojo = "seattle";
     console.log(dojo);
@@ -96,7 +97,7 @@ console.log(dojo);
 
 console.log(makeDojo("Chicago", 65));
 console.log(makeDojo("Berkeley", 0));
-function makeDojo(name, students){
+function makeDojo(name, students){ // hoisted
     const dojo = {};
     dojo.name = name;
     dojo.students = students;
