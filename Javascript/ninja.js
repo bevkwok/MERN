@@ -11,7 +11,9 @@ class Ninja {
     }
 
     showStats(){
-        return `${this.name} 's strengh is ${this.strength} with speed of ${this.speed} and has ${this.health} health`;
+        console.log(`${this.name} 's strengh is ${this.strength} with speed of ${this.speed} and has ${this.health} health`);
+        
+        return (`${this.name} 's strengh is ${this.strength} with speed of ${this.speed} and has ${this.health} health`);
     }
 
     drinkSake(){
@@ -19,3 +21,7 @@ class Ninja {
     }
         
 }
+
+const ninja1 = new Ninja("Hyabusa");
+ninja1.sayName();
+ninja1.showStats();
