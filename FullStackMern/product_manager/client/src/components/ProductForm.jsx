@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import Main from '../views/Main';
 
-export default () => {
+
+export default (props) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -14,7 +16,11 @@ export default () => {
             price,
             description
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res.data.product)
+                // const thenewpro = res.data.product
+                // props.setProducts({...props.prouducts, thenewpro})
+            })
             .catch(err => console.log(err))
     }
     
